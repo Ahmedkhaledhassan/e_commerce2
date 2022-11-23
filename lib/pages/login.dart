@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:e_commerce2/shared/custom_textfield.dart';
+import 'package:e_commerce2/shared/constants.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatelessWidget {
@@ -14,23 +14,26 @@ class Login extends StatelessWidget {
           padding: const EdgeInsets.all(33.0),
           child: Column(
             // ignore: prefer_const_constructors
+            // ignore: prefer_const_literals_to_create_immutables
             children: [
               const SizedBox(
                 height: 40,
               ),
-              MyTextField(
-                textInputTypee: TextInputType.emailAddress,
-                isPassword: false,
-                hinttext: "Enter your Email:",
-              ),
+              TextField(
+                  keyboardType: TextInputType.emailAddress,
+                  obscureText: false,
+                  decoration: decorationTextField.copyWith(
+                    hintText: "Enter your Email:",
+                  )),
               const SizedBox(
                 height: 30,
               ),
-              MyTextField(
-                textInputTypee: TextInputType.text,
-                isPassword: true,
-                hinttext: "Enter your passwod:",
-              ),
+              TextField(
+                  keyboardType: TextInputType.text,
+                  obscureText: true,
+                  decoration: decorationTextField.copyWith(
+                    hintText: "Enter your Password:",
+                  )),
             ],
           ),
         ),
