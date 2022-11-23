@@ -70,6 +70,9 @@ class Details extends StatelessWidget {
                     color: Color.fromARGB(255, 206, 25, 25),
                     borderRadius: BorderRadius.circular(3.5)),
               ),
+              SizedBox(
+                width: 20,
+              ),
               Row(
                 // ignore: prefer_const_literals_to_create_immutables
                 children: [
@@ -98,6 +101,26 @@ class Details extends StatelessWidget {
                     size: 22,
                     color: Color.fromARGB(255, 230, 208, 17),
                   ),
+                ],
+              ),
+              SizedBox(
+                width: 90,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Icon(
+                    Icons.edit_location_alt,
+                    size: 26,
+                    color: Color.fromARGB(255, 10, 71, 12),
+                  ),
+                  SizedBox(
+                    width: 3,
+                  ),
+                  Text(
+                    "Books shop",
+                    style: TextStyle(fontSize: 17),
+                  )
                 ],
               )
             ],
