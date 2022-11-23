@@ -2,8 +2,10 @@
 
 import 'package:e_commerce2/model/item.dart';
 import 'package:e_commerce2/pages/details_screen.dart';
+import 'package:e_commerce2/provider/cart.dart';
 import 'package:e_commerce2/shared/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -46,10 +48,15 @@ class Home extends StatelessWidget {
                     ]),
                     footer: GridTileBar(
 // backgroundColor: Color.fromARGB(66, 73, 127, 110),
-                      trailing: IconButton(
-                          color: Color.fromARGB(255, 60, 100, 119),
-                          onPressed: () {},
-                          icon: Icon(Icons.add)),
+                      trailing:
+                          Consumer<Cart>(builder: ((context, Cartt, child) {
+                        return IconButton(
+                            color: Color.fromARGB(255, 60, 94, 70),
+                            onPressed: () {
+                              Cartt.add(items[index]);
+                            },
+                            icon: Icon(Icons.add));
+                      })),
 
                       leading: Text(
                         "\$30.99",
@@ -117,38 +124,40 @@ class Home extends StatelessWidget {
         )),
         appBar: AppBar(
           actions: [
-            Row(
-              children: [
-                Stack(
-                  children: [
-                    Positioned(
-                      bottom: 22,
-                      child: Container(
-                          child: Text(
-                            "0",
-                            style: TextStyle(
-                                fontSize: 12,
-                                color: Color.fromARGB(255, 0, 0, 0)),
-                          ),
-                          padding: EdgeInsets.all(5),
-                          decoration: BoxDecoration(
-                              color: Color.fromARGB(210, 95, 143, 187),
-                              shape: BoxShape.circle)),
-                    ),
-                    IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.add_shopping_cart_sharp)),
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(right: 11),
-                  child: Text(
-                    "\$0",
-                    style: TextStyle(fontSize: 16),
+            Consumer<Cart>(builder: ((context, classInstancee, child) {
+              return Row(
+                children: [
+                  Stack(
+                    children: [
+                      Positioned(
+                        bottom: 22,
+                        child: Container(
+                            child: Text(
+                              "${classInstancee.selectedProducts.length}",
+                              style: TextStyle(
+                                  fontSize: 12,
+                                  color: Color.fromARGB(255, 0, 0, 0)),
+                            ),
+                            padding: EdgeInsets.all(5),
+                            decoration: BoxDecoration(
+                                color: Color.fromARGB(210, 95, 143, 187),
+                                shape: BoxShape.circle)),
+                      ),
+                      IconButton(
+                          onPressed: () {},
+                          icon: Icon(Icons.add_shopping_cart_sharp)),
+                    ],
                   ),
-                ),
-              ],
-            ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 11),
+                    child: Text(
+                      "\$ ${classInstancee.price}",
+                      style: TextStyle(fontSize: 16),
+                    ),
+                  ),
+                ],
+              );
+            })),
           ],
           backgroundColor: appbarblue,
           title: Text("Home"),
