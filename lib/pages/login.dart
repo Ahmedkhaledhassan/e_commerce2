@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:e_commerce2/shared/custom_textfield.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatelessWidget {
@@ -17,45 +18,19 @@ class Login extends StatelessWidget {
               const SizedBox(
                 height: 40,
               ),
-              TextField(
-                  keyboardType: TextInputType.emailAddress,
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    hintText: "Enter Your Email : ",
-                    // To delete borders
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: Divider.createBorderSide(context),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.grey,
-                      ),
-                    ),
-
-                    filled: true,
-                    contentPadding: const EdgeInsets.all(9),
-                  )),
+              MyTextField(
+                textInputTypee: TextInputType.emailAddress,
+                isPassword: false,
+                hinttext: "Enter your Email:",
+              ),
               const SizedBox(
                 height: 30,
               ),
-              TextField(
-                  keyboardType: TextInputType.emailAddress,
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    hintText: "Enter Your Password : ",
-                    // To delete borders
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: Divider.createBorderSide(context),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.grey,
-                      ),
-                    ),
-
-                    filled: true,
-                    contentPadding: const EdgeInsets.all(9),
-                  ))
+              MyTextField(
+                textInputTypee: TextInputType.text,
+                isPassword: true,
+                hinttext: "Enter your passwod:",
+              ),
             ],
           ),
         ),
