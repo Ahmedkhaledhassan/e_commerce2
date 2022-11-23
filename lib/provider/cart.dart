@@ -1,3 +1,5 @@
 import 'package:flutter/material.dart';
 
-class Cart with ChangeNotifier {}
+class Cart with ChangeNotifier {
+  List selectedProducts = [];
+}
