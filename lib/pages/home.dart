@@ -10,6 +10,33 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.only(top: 20),
+          child: GridView.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: 3 / 2,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 33),
+              itemCount: 4,
+              itemBuilder: (BuildContext context, int index) {
+                return GridTile(
+                  child: Stack(children: [
+                    Positioned(
+                      top: -3,
+                      bottom: -9,
+                      right: 0,
+                      left: 0,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(40),
+                        child: Image.network(
+                            "https://img.freepik.com/free-photo/front-view-pile-books-with-glasses_23-2148255817.jpg?t=st=1669212536~exp=1669213136~hmac=c00a4a39ea54c541b1d4513dbf6a73c94d4629d5c980828831c078a03112fb92"),
+                      ),
+                    ),
+                  ]),
+                );
+              }),
+        ),
         drawer: Drawer(
             child: Column(
           children: [
