@@ -3,8 +3,14 @@
 import 'package:e_commerce2/shared/colors.dart';
 import 'package:flutter/material.dart';
 
-class Details extends StatelessWidget {
-  const Details({super.key});
+class Details extends StatefulWidget {
+  @override
+  State<Details> createState() => _DetailsState();
+}
+
+class _DetailsState extends State<Details> {
+  //const Details({super.key});
+  bool isshowmore = true;
 
   @override
   Widget build(BuildContext context) {
@@ -47,85 +53,119 @@ class Details extends StatelessWidget {
         backgroundColor: appbarblue,
         title: Text("Details screen"),
       ),
-      body: Column(
-        children: [
-          Image.network(
-              "https://as1.ftcdn.net/v2/jpg/04/03/44/18/1000_F_403441840_n2V9oYfDCpAGMO3k93iOtiS0sdmHE1us.jpg"),
-          Text(
-            "\$10.99",
-            style: TextStyle(fontSize: 20),
-          ),
-          SizedBox(
-            height: 16,
-          ),
-          Row(
-            children: [
-              Container(
-                padding: EdgeInsets.all(4),
-                child: Text(
-                  "new",
-                  style: TextStyle(fontSize: 15),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Image.network(
+              "https://as1.ftcdn.net/v2/jpg/04/03/44/18/1000_F_403441840_n2V9oYfDCpAGMO3k93iOtiS0sdmHE1us.jpg",
+              height: 400,
+            ),
+            Text(
+              "\$10.99",
+              style: TextStyle(fontSize: 20),
+            ),
+            SizedBox(
+              height: 16,
+            ),
+            Row(
+              children: [
+                Container(
+                  padding: EdgeInsets.all(4),
+                  child: Text(
+                    "new",
+                    style: TextStyle(fontSize: 15),
+                  ),
+                  decoration: BoxDecoration(
+                      color: Color.fromARGB(255, 206, 25, 25),
+                      borderRadius: BorderRadius.circular(3.5)),
                 ),
-                decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 206, 25, 25),
-                    borderRadius: BorderRadius.circular(3.5)),
+                SizedBox(
+                  width: 20,
+                ),
+                Row(
+                  // ignore: prefer_const_literals_to_create_immutables
+                  children: [
+                    Icon(
+                      Icons.star,
+                      size: 22,
+                      color: Color.fromARGB(255, 230, 208, 17),
+                    ),
+                    Icon(
+                      Icons.star,
+                      size: 22,
+                      color: Color.fromARGB(255, 230, 208, 17),
+                    ),
+                    Icon(
+                      Icons.star,
+                      size: 22,
+                      color: Color.fromARGB(255, 230, 208, 17),
+                    ),
+                    Icon(
+                      Icons.star,
+                      size: 22,
+                      color: Color.fromARGB(255, 230, 208, 17),
+                    ),
+                    Icon(
+                      Icons.star,
+                      size: 22,
+                      color: Color.fromARGB(255, 230, 208, 17),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  width: 80,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Icon(
+                      Icons.edit_location_alt,
+                      size: 26,
+                      color: Color.fromARGB(255, 10, 71, 12),
+                    ),
+                    SizedBox(
+                      width: 3,
+                    ),
+                    Text(
+                      "Books shop",
+                      style: TextStyle(fontSize: 17),
+                    )
+                  ],
+                ),
+                SizedBox(
+                  width: 16,
+                ),
+              ],
+            ),
+            SizedBox(
+              width: double.infinity,
+              child: Text(
+                "Details : ",
+                style: TextStyle(fontSize: 24),
+                textAlign: TextAlign.start,
               ),
-              SizedBox(
-                width: 20,
-              ),
-              Row(
-                // ignore: prefer_const_literals_to_create_immutables
-                children: [
-                  Icon(
-                    Icons.star,
-                    size: 22,
-                    color: Color.fromARGB(255, 230, 208, 17),
-                  ),
-                  Icon(
-                    Icons.star,
-                    size: 22,
-                    color: Color.fromARGB(255, 230, 208, 17),
-                  ),
-                  Icon(
-                    Icons.star,
-                    size: 22,
-                    color: Color.fromARGB(255, 230, 208, 17),
-                  ),
-                  Icon(
-                    Icons.star,
-                    size: 22,
-                    color: Color.fromARGB(255, 230, 208, 17),
-                  ),
-                  Icon(
-                    Icons.star,
-                    size: 22,
-                    color: Color.fromARGB(255, 230, 208, 17),
-                  ),
-                ],
-              ),
-              SizedBox(
-                width: 90,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Icon(
-                    Icons.edit_location_alt,
-                    size: 26,
-                    color: Color.fromARGB(255, 10, 71, 12),
-                  ),
-                  SizedBox(
-                    width: 3,
-                  ),
-                  Text(
-                    "Books shop",
-                    style: TextStyle(fontSize: 17),
-                  )
-                ],
-              )
-            ],
-          )
-        ],
+            ),
+            SizedBox(
+              width: 50,
+            ),
+            Text(
+              "A book is a medium for recording information in the form of writing or images, typically composed of many pages (made of papyrus, parchment, vellum, or paper) bound together and protected by a cover.[1] The technical term for this physical arrangement is codex (plural, codices). In the history of hand-held physical supports for extended written compositions or records, the codex replaces its predecessor, the scroll. A single sheet in a codex is a leaf and each side of a leaf is a page.",
+              style: TextStyle(fontSize: 20),
+              maxLines: isshowmore ? 6 : null,
+              overflow: TextOverflow.fade,
+            ),
+            TextButton(
+                onPressed: () {
+                  setState(() {
+                    isshowmore = !isshowmore;
+                  });
+                },
+                child: Text(
+                  isshowmore ? "Show more" : "Show less",
+                  style: TextStyle(fontSize: 18),
+                ))
+          ],
+        ),
       ),
     );
   }
