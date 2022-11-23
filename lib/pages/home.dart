@@ -143,7 +143,7 @@ class Home extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(right: 11),
                   child: Text(
-                    "\$10",
+                    "\$0",
                     style: TextStyle(fontSize: 16),
                   ),
                 ),
