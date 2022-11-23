@@ -1,3 +1,4 @@
+import 'package:e_commerce2/pages/details_screen.dart';
 import 'package:e_commerce2/pages/home.dart';
 import 'package:e_commerce2/pages/login.dart';
 import 'package:e_commerce2/pages/register.dart';
@@ -12,9 +13,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Home(),
+      home: Details(),
     );
   }
 }
