@@ -3,8 +3,49 @@
 import 'package:e_commerce2/shared/colors.dart';
 import 'package:flutter/material.dart';
 
+class Item {
+  String imgPath;
+  double prince;
+  Item({required this.imgPath, required this.prince});
+}
+
 class Home extends StatelessWidget {
-  const Home({super.key});
+  List<Item> items = [
+    Item(
+        imgPath:
+            "https://as1.ftcdn.net/v2/jpg/04/03/44/18/1000_F_403441840_n2V9oYfDCpAGMO3k93iOtiS0sdmHE1us.jpg",
+        prince: 10.99),
+    Item(
+        imgPath:
+            "https://as2.ftcdn.net/v2/jpg/04/04/32/45/1000_F_404324569_zX1J9WpJWvjTPoKkD1QikaHu2Ro2A6O0.jpg",
+        prince: 2.99),
+    Item(
+        imgPath:
+            "https://as2.ftcdn.net/v2/jpg/04/05/79/33/1000_F_405793335_xTlaDaOSqOTBhJ42ZtMlJQ1aKCdw3mbr.jpg",
+        prince: 133.99),
+    Item(
+        imgPath:
+            "https://as1.ftcdn.net/v2/jpg/04/13/83/48/1000_F_413834884_4b0ATUwPT02Jb74zT2JGufIIUVjmLXBG.jpg",
+        prince: 133.99),
+    Item(
+        imgPath:
+            "https://as2.ftcdn.net/v2/jpg/04/14/92/15/1000_F_414921511_jQnhpV4m1USNfVg6yOQcbGbQhyTt6Khg.jpg",
+        prince: 13.99),
+    Item(
+        imgPath:
+            "https://as1.ftcdn.net/v2/jpg/04/13/83/50/1000_F_413835000_rvaGpGLJebXRVUsRUkO3rGZQ8mkCJ670.jpg",
+        prince: 77.99),
+    Item(
+        imgPath:
+            "https://as1.ftcdn.net/v2/jpg/04/15/13/44/1000_F_415134459_XwBHbU0tuyJiOqOtWeTI7UVhtoiDuGUI.jpg",
+        prince: 45.99),
+    Item(
+        imgPath:
+            "https://as1.ftcdn.net/v2/jpg/03/90/84/48/1000_F_390844834_Hm9JFowyimPtUaKyhQLsHuTZjhWs0aD8.jpg",
+        prince: 19.99),
+  ];
+
+  Home({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +59,7 @@ class Home extends StatelessWidget {
                   childAspectRatio: 3 / 2,
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 33),
-              itemCount: 8,
+              itemCount: items.length,
               itemBuilder: (BuildContext context, int index) {
                 return GestureDetector(
                   onTap: () {},
@@ -31,8 +72,7 @@ class Home extends StatelessWidget {
                         left: 25,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(40),
-                          child: Image.network(
-                              "https://img.freepik.com/free-photo/front-view-pile-books-with-glasses_23-2148255817.jpg?t=st=1669212536~exp=1669213136~hmac=c00a4a39ea54c541b1d4513dbf6a73c94d4629d5c980828831c078a03112fb92"),
+                          child: Image.network(items[index].imgPath),
                         ),
                       ),
                     ]),
