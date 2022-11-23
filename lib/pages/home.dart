@@ -18,22 +18,41 @@ class Home extends StatelessWidget {
                   childAspectRatio: 3 / 2,
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 33),
-              itemCount: 4,
+              itemCount: 8,
               itemBuilder: (BuildContext context, int index) {
-                return GridTile(
-                  child: Stack(children: [
-                    Positioned(
-                      top: -3,
-                      bottom: -9,
-                      right: 0,
-                      left: 0,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(40),
-                        child: Image.network(
-                            "https://img.freepik.com/free-photo/front-view-pile-books-with-glasses_23-2148255817.jpg?t=st=1669212536~exp=1669213136~hmac=c00a4a39ea54c541b1d4513dbf6a73c94d4629d5c980828831c078a03112fb92"),
+                return GestureDetector(
+                  onTap: () {},
+                  child: GridTile(
+                    child: Stack(children: [
+                      Positioned(
+                        top: -20,
+                        bottom: -15,
+                        right: 25,
+                        left: 25,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(40),
+                          child: Image.network(
+                              "https://img.freepik.com/free-photo/front-view-pile-books-with-glasses_23-2148255817.jpg?t=st=1669212536~exp=1669213136~hmac=c00a4a39ea54c541b1d4513dbf6a73c94d4629d5c980828831c078a03112fb92"),
+                        ),
+                      ),
+                    ]),
+                    footer: GridTileBar(
+// backgroundColor: Color.fromARGB(66, 73, 127, 110),
+                      trailing: IconButton(
+                          color: Color.fromARGB(255, 60, 100, 119),
+                          onPressed: () {},
+                          icon: Icon(Icons.add)),
+
+                      leading: Text(
+                        "\$30.99",
+                        style: TextStyle(fontSize: 18),
+                      ),
+
+                      title: Text(
+                        "",
                       ),
                     ),
-                  ]),
+                  ),
                 );
               }),
         ),
