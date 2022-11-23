@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:e_commerce2/shared/colors.dart';
 import 'package:e_commerce2/shared/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -34,6 +35,20 @@ class Login extends StatelessWidget {
                   decoration: decorationTextField.copyWith(
                     hintText: "Enter your Password:",
                   )),
+              const SizedBox(
+                height: 30,
+              ),
+              ElevatedButton(
+                  onPressed: () {},
+                  child: Text(
+                    "Login",
+                    style: TextStyle(fontSize: 17),
+                  ),
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(BTNgreen),
+                      padding: MaterialStateProperty.all(EdgeInsets.all(12)),
+                      shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(6)))))
             ],
           ),
         ),
