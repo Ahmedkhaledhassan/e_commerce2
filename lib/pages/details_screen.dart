@@ -1,9 +1,12 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:e_commerce2/model/item.dart';
 import 'package:e_commerce2/shared/colors.dart';
 import 'package:flutter/material.dart';
 
 class Details extends StatefulWidget {
+  Item product;
+  Details({required this.product});
   @override
   State<Details> createState() => _DetailsState();
 }
@@ -57,11 +60,11 @@ class _DetailsState extends State<Details> {
         child: Column(
           children: [
             Image.network(
-              "https://as1.ftcdn.net/v2/jpg/04/03/44/18/1000_F_403441840_n2V9oYfDCpAGMO3k93iOtiS0sdmHE1us.jpg",
+              widget.product.imgPath,
               height: 400,
             ),
             Text(
-              "\$10.99",
+              "\$ ${widget.product.prince}",
               style: TextStyle(fontSize: 20),
             ),
             SizedBox(
@@ -127,7 +130,7 @@ class _DetailsState extends State<Details> {
                       width: 3,
                     ),
                     Text(
-                      "Books shop",
+                      widget.product.location,
                       style: TextStyle(fontSize: 17),
                     )
                   ],

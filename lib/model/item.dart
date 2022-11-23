@@ -1,14 +1,21 @@
+import 'dart:html';
+
 class Item {
   String imgPath;
   double prince;
-  Item({required this.imgPath, required this.prince});
+  String location;
+  Item(
+      {required this.imgPath,
+      required this.prince,
+      this.location = "Main branch"});
 }
 
 List<Item> items = [
   Item(
       imgPath:
           "https://as1.ftcdn.net/v2/jpg/04/03/44/18/1000_F_403441840_n2V9oYfDCpAGMO3k93iOtiS0sdmHE1us.jpg",
-      prince: 10.99),
+      prince: 10.99,
+      location: "Ahmed shop"),
   Item(
       imgPath:
           "https://as2.ftcdn.net/v2/jpg/04/04/32/45/1000_F_404324569_zX1J9WpJWvjTPoKkD1QikaHu2Ro2A6O0.jpg",
@@ -16,7 +23,7 @@ List<Item> items = [
   Item(
       imgPath:
           "https://as2.ftcdn.net/v2/jpg/04/05/79/33/1000_F_405793335_xTlaDaOSqOTBhJ42ZtMlJQ1aKCdw3mbr.jpg",
-      prince: 133.99),
+      prince: 97.99),
   Item(
       imgPath:
           "https://as1.ftcdn.net/v2/jpg/04/13/83/48/1000_F_413834884_4b0ATUwPT02Jb74zT2JGufIIUVjmLXBG.jpg",
